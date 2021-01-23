@@ -12,7 +12,7 @@ Below you can find result of build-in options applied.
 
 <div align='center'>
   <img src='images/style-images/mosaic.jpg' height="174px">
-  <img src='images/output-images/reslut-mosaic.jpg' height="174px">
+  <img src='images/output-images/result-mosaic.jpg' height="174px">
   <img src='images/output-images/result-candy.jpg' height="174px">
   <img src='images/style-images/candy.jpg' height="174px">
   <br>
