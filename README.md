@@ -67,7 +67,7 @@ I use AWS for deployment the bot - mostly due to the fact that AWS allocates the
 
 [pytorch](http://pytorch.org/)
 [scipy](https://www.scipy.org). 
-[aiogram] `$ pip install -U aiogram`
+[aiogram](https://docs.aiogram.dev/en/latest/index.html) `$ pip install -U aiogram`
 
 
 
