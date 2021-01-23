@@ -4,7 +4,7 @@ This repository contains Telegram Bot code that implements a quick style transfe
 User have 2 options: use build-in styles or upload own image of style.
 Totoshka Bot is the capstone project for the course [Deep Learning School by MIPT](https://en.dlschool.org/).
 
-Below you can find result of build-in options applied.
+Below you can find result of build-in style options applied.
 
 <div align='center'>
   <img src='images/content-images/content.jpg' height="174px">        
