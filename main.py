@@ -35,7 +35,7 @@ def transform(content_root, model, style_root = None):
     content_image = Variable(content_image)
     if style_root: #Use of msg-net that generalized to all styles.
         style_model = MSGNet(ngf=128) #initialize the net
-        style_model.load_state_dict(torch.load(models_root+model), False) #upload weights
+        style_model.load_state_dict(torch.load(models_root+model)) #upload weights
         style = load_image(style_root).to(device)
         style_v = Variable(style)
         style_model.setTarget(style_v)
@@ -136,8 +136,6 @@ async def photo_processing(message: types.Message):
         style_flag = True
         #flag = False
 
-    #await message.answer(text='Successfully!')
-
 
 @dp.message_handler(lambda message: message.text == 'Continue')
 async def contin(message: types.Message):
@@ -187,13 +185,13 @@ async def processing(message: types.Message):
         res = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
         res.add(types.KeyboardButton(text="Candy"))
         res.add(types.KeyboardButton(text="Mosaic"))
-        res.add(types.KeyboardButton(text="Starry-Night"))
+        res.add(types.KeyboardButton(text="Rain-Princess"))
         res.add(types.KeyboardButton(text="Udnie"))
 
         await message.answer(text="Choose the style option.", reply_markup=res)
 
 
-@dp.message_handler(lambda message: message.text in ("Candy", "Mosaic", "Starry-Night", "Udnie"))
+@dp.message_handler(lambda message: message.text in ("Candy", "Mosaic", "Rain-Princess", "Udnie"))
 async def processing(message: types.Message):
     """Image processing depending on the selected option."""
 
@@ -201,14 +199,14 @@ async def processing(message: types.Message):
     global content_flag
     global style_flag
 
-    if message.text == 'Candy':
-        model = 'candy.pth'
-    if message.text == 'Mosaic':
-        model = 'mosaic.pth'
-    if message.text == 'Starry-Night':
-        model = 'starry-night.pth'
-    if message.text == 'Udnie':
-        model = 'udnie.pth'
+    if message.text == "Candy":
+        model = "candy.pth"
+    if message.text == "Mosaic":
+        model = "mosaic.pth"
+    if message.text == "Rain-Princess":
+        model = "rain_princess.pth"
+    if message.text == "Udnie":
+        model = "udnie.pth"
 
     await message.answer(text='Processing has started and will take about 10 secs. '
                               '\n'
