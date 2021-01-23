@@ -13,11 +13,13 @@ Below you can find result of build-in options applied.
 <div align='center'>
   <img src='images/style-images/mosaic.jpg' height="174px">
   <img src='images/output-images/result-mosaic.jpg' height="174px">
+  <br>
   <img src='images/style-images/candy.jpg' height="174px">
   <img src='images/output-images/result-candy.jpg' height="174px">
   <br>
   <img src='images/style-images/starry-night.jpg' height="174px">
   <img src='images/output-images/result-starry-night.jpg' height="174px">
+  <br>
   <img src='images/style-images/udnie.jpg' height="174px">
   <img src='images/output-images/result-udnie.jpg' height="174px">
 </div>
