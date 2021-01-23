@@ -4,10 +4,8 @@ from torchvision import transforms
 
 
 def load_image(filename, size=None, scale=None):
-    style_transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Lambda(lambda x: x.mul(255))])
-    content_transform = transforms.Compose([
+
+    transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Lambda(lambda x: x.mul(255))])
     
@@ -16,10 +14,8 @@ def load_image(filename, size=None, scale=None):
         img = img.resize((size, size), Image.ANTIALIAS)
     elif scale is not None:
         img = img.resize((int(img.size[0] / scale), int(img.size[1] / scale)), Image.ANTIALIAS)
-    if filename == 'content.jpg':
-        img = content_transform(img).unsqueeze(0)
-    elif filename == 'style.jpg':
-        img = style_transform(img).unsqueeze(0)
+
+    img = transform(img).unsqueeze(0)
 
     return img
 
