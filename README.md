@@ -17,8 +17,8 @@ Below you can find result of build-in style options applied.
   <img src='images/style-images/candy.jpg' height="174px">
   <img src='images/output-images/result-candy.jpg' height="174px">
   <br>
-  <img src='images/style-images/starry-night.jpg' height="174px">
-  <img src='images/output-images/result-starry-night.jpg' height="174px">
+  <img src='images/style-images/rain-princess.jpg' height="174px">
+  <img src='images/output-images/result-rain-princess.jpg' height="174px">
   <br>
   <img src='images/style-images/udnie.jpg' height="174px">
   <img src='images/output-images/result-udnie.jpg' height="174px">
