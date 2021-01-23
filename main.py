@@ -4,7 +4,7 @@ import gc
 from aiogram import Bot, Dispatcher, executor, types
 from decouple import config
 from msg_net import *  # Import architecture
-from untils_b import *  # Import functions
+from utils import *  # Import functions
 from transformer_net import *
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
