@@ -4,5 +4,9 @@ async-timeout==3.0.1
 numpy
 python-decouple==3.4
 Pillow==8.1.0
-torch==1.7.1
-torchvision==0.8.2
+
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.5.0+cpu
+torchfile==0.1.0
+torchvision==0.6.0+cpu
