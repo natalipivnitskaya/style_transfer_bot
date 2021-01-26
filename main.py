@@ -31,7 +31,7 @@ device = ("cuda" if torch.cuda.is_available() else "cpu")
 
 def transform(content_root, model, style_root = None):
     """Function for image transformation."""
-    content_image = load_image(content_root).to(device)
+    content_image = load_image(content_root, size = 225).to(device)
     content_image = Variable(content_image)
     if style_root: #Use of msg-net that generalized to all styles.
         style_model = MSGNet(ngf=128) #initialize the net
