@@ -46,8 +46,8 @@ def transform(content_root, model, style_root = None):
     output = style_model(content_image)
     save_image('result.jpg', output.data[0])
 
-
     # Clear the RAM.
+    del style_model
     del content_image
     del output
     if style_root:
