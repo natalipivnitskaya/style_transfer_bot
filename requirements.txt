@@ -1,21 +1,25 @@
-aiodns==2.0.0
-aiogram==2.9.2
-aiohttp==3.6.2
-aiohttp-socks==0.3.9
-Flask==1.1.2
-glob2==0.7
-numpy==1.18.5
-numpydoc==1.0.0
-path==14.0.1
-path.py==12.0.2
-Pillow==7.1.2
-pycurl==7.43.0.5
-pyOpenSSL==19.1.0
---find-links https://download.pytorch.org/whl/torch_stable.html
-torch==1.5.0+cpu
-torchfile==0.1.0
-torchvision==0.6.0+cpu
-tqdm==4.46.1
-ujson==1.35
-unicodecsv==0.14.1
-urllib3==1.25.9
+aiogram==2.11.2
+aiohttp==3.7.3
+async-timeout==3.0.1
+attrs==20.3.0
+Babel==2.9.0
+certifi==2020.12.5
+cffi @ file:///opt/concourse/worker/volumes/live/730e9a28-66f9-4e03-51ad-252ec8e40d81/volume/cffi_1606255126408/work
+chardet==3.0.4
+idna==3.1
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+multidict==5.1.0
+numpy @ file:///opt/concourse/worker/volumes/live/5572694e-967a-4c0c-52cf-b53d43e72de9/volume/numpy_and_numpy_base_1603491881791/work
+Pillow==8.1.0
+psycopg2-binary==2.8.5
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+python-decouple==3.4
+pytz==2020.5
+six @ file:///opt/concourse/worker/volumes/live/5b31cb27-1e37-4ca5-6e9f-86246eb206d2/volume/six_1605205320872/work
+torch==1.7.1
+torchvision==0.8.2
+typing-extensions==3.7.4.3
+websocket-client==0.57.0
+yarl==1.6.3
