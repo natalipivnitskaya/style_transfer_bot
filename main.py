@@ -2,10 +2,13 @@ import os
 import logging
 import gc
 from aiogram import Bot, Dispatcher, executor, types
+from aiogram.utils.executor import start_webhook
+from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from decouple import config
 from msg_net import *  # Import architecture
 from utils import *  # Import functions
 from transformer_net import *
+
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
@@ -18,7 +21,20 @@ logging.basicConfig(level=logging.INFO)
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
+dp.middleware.setup(LoggingMiddleware())
 models_root = './models/'
+
+#Settings
+HEROKU_APP_NAME = config('HEROKU_APP_NAME')
+
+# webhook settings
+WEBHOOK_HOST = f'https://{HEROKU_APP_NAME}.herokuapp.com'
+WEBHOOK_PATH = f'/webhook/{API_TOKEN}'
+WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
+
+# webserver settings
+WEBAPP_HOST = '0.0.0.0'
+WEBAPP_PORT = int(os.getenv('PORT'))
 
 
 # Initializing the flag to distinguish between images content and style.
@@ -222,6 +238,24 @@ async def processing(message: types.Message):
     with open('result.jpg', 'rb') as file:
         await message.answer_photo(file, caption='Done!')
 
+async def on_startup(dp):
+    logging.warning(
+        'Starting connection. ')
+    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
+
+async def on_shutdown(dp):
+    logging.warning('Bye! Shutting down webhook connection')
+
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    logging.basicConfig(level=logging.INFO)
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=WEBHOOK_PATH,
+        skip_updates=True,
+        on_startup=on_startup,
+        host=WEBAPP_HOST,
+        port=WEBAPP_PORT,
+    )
+
+    #executor.start_polling(dp, skip_updates=True)
