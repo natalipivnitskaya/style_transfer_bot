@@ -28,8 +28,7 @@ dp.middleware.setup(LoggingMiddleware())
 models_root = './models/'
 
 #Settings
-# HASH = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
-HASH = 'Q6XrSPxWvK1TSeqD'
+HASH = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
 HEROKU_APP_NAME = config('HEROKU_APP_NAME')
 WEBHOOK_HOST = f'https://{HEROKU_APP_NAME}.herokuapp.com'
 WEBHOOK_PATH = f'/webhook/{HASH}'
@@ -242,11 +241,11 @@ async def processing(message: types.Message):
 
 async def on_startup(dp):
     logging.warning('Registering webhook...')
-    # await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
+    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
 
 async def on_shutdown(dp):
     logging.warning('Shutting down webhook connection')
-    # await bot.delete_webhook()
+    await bot.delete_webhook()
     # Close DP connection (if used)
     await dp.storage.close()
     await dp.storage.wait_closed()
