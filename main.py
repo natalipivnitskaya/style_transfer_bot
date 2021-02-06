@@ -17,6 +17,7 @@ API_TOKEN = config('API_TOKEN')
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
+logging.debug('API_TOKEN={}'.format(API_TOKEN[:5]))
 
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
@@ -27,7 +28,7 @@ models_root = './models/'
 #Settings
 HEROKU_APP_NAME = config('HEROKU_APP_NAME')
 WEBHOOK_HOST = f'https://{HEROKU_APP_NAME}.herokuapp.com'
-WEBHOOK_PATH = f'/webhook/{API_TOKEN}'
+WEBHOOK_PATH = f'/webhook'
 WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = int(config('PORT'))
