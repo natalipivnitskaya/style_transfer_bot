@@ -19,7 +19,7 @@ API_TOKEN = config('API_TOKEN')
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
-logging.debug('API_TOKEN={}'.format(API_TOKEN[:5]))
+logging.debug('API_TOKEN={}...'.format(API_TOKEN[:5]))
 
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
@@ -242,6 +242,7 @@ async def processing(message: types.Message):
 async def on_startup(dp):
     logging.warning('Registering webhook...')
     await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
+    logging.warning('Checking webhook info: {}'.format(await bot.get_webhook_info()))
 
 async def on_shutdown(dp):
     logging.warning('Shutting down webhook connection')
