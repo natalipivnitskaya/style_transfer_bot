@@ -48,7 +48,7 @@ def transform(content_root, model, style_root = None):
     if style_root: #Use of msg-net that generalized to all styles.
         style_model = MSGNet(ngf=128) #initialize the net
         style_model.load_state_dict(torch.load(models_root+model)) #upload weights
-        style = load_image(style_root).to(device)
+        style = load_image(style_root, size = 225).to(device)
         style_v = Variable(style)
         style_model.setTarget(style_v)
     else: #User wants build-in option style so use specifically style trained model.
