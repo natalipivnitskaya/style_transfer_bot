@@ -1,6 +1,8 @@
 import os
 import logging
 import gc
+import string
+import random
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.utils.executor import start_webhook
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
@@ -26,9 +28,10 @@ dp.middleware.setup(LoggingMiddleware())
 models_root = './models/'
 
 #Settings
+HASH = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
 HEROKU_APP_NAME = config('HEROKU_APP_NAME')
 WEBHOOK_HOST = f'https://{HEROKU_APP_NAME}.herokuapp.com'
-WEBHOOK_PATH = f'/webhook'
+WEBHOOK_PATH = f'/webhook/{HASH}'
 WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = int(config('PORT'))
@@ -238,7 +241,7 @@ async def processing(message: types.Message):
 
 async def on_startup(dp):
     logging.warning('Starting connection. ')
-    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
+    await bot.set_webhook(WEBHOOK_URL)
 
 async def on_shutdown(dp):
     logging.warning('Shutting down webhook connection')
