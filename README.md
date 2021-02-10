@@ -43,7 +43,7 @@ All used models can be downloaded from models folder.
 
 ## Bot
 
-You can find bot at Telegram @Totoshka 
+You can find bot at Telegram [@Totoshka](https://t.me/cvmfjknqrgbhdckmslbcfjhvenjc_bot)
 
 For bot implementation I use [aiogram](https://docs.aiogram.dev/en/latest/index.html) as the main framework for writing the bot.
 Aiogram allows processing requests from multiple users simultaneously - asynchrony.
@@ -57,10 +57,7 @@ I got a unique token for my bot via `@BotFather`.
 
 ## Deploy
 
-I use AWS for deployment the bot - mostly due to the fact that AWS allocates the most RAM among others services. Heroku could be easier though.
-
-[Here](https://github.com/hse-aml/natural-language-processing/blob/master/AWS-tutorial.md) is a pretty good tutorial for AWS.
-
+I use free Heroku dyno for deployment of the bot. Due to the memory limits of the free dyno, bot have to resize the incoming images to the smaller size. Otherwise, model consumes too much memory.
 
 
 ## Requirements
@@ -77,6 +74,3 @@ I use AWS for deployment the bot - mostly due to the fact that AWS allocates the
 Stylize image:
 
 Upload the content photo to the Telegram Bot and wait for the furthur instructions. It's pretty user-friendly.
-
-
-
