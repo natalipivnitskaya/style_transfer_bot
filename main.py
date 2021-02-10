@@ -246,7 +246,7 @@ async def on_startup(dp):
 
 async def on_shutdown(dp):
     logging.warning('Shutting down webhook connection')
-    await bot.delete_webhook()
+    #await bot.delete_webhook()
     # Close DP connection (if used)
     await dp.storage.close()
     await dp.storage.wait_closed()
