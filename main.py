@@ -241,7 +241,7 @@ async def processing(message: types.Message):
 
 async def on_startup(dp):
     logging.warning('Registering webhook...')
-    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
+    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=False)
     logging.warning('Checking webhook info: {}'.format(await bot.get_webhook_info()))
 
 async def on_shutdown(dp):
