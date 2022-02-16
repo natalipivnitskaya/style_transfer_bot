@@ -29,12 +29,12 @@ Below you can find result of build-in style options applied.
 
 In the original version of the [NST](), training process starts over and over again from scratch every time when we get new content and style images. It takes a lot of time of waiting. 
 
-The main goal - is to make waiting time as short as possible. With that reason in this project I try to use different models which minimize the loss by training the network. I found two options  [MSG-Net](https://arxiv.org/pdf/1703.06953.pdf) and [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155). Bot uses there pretrained models based on user's choice of tranfering own style or build-in options.
+The main goal - is to make waiting time as short as possible. I found two options [MSG-Net](https://arxiv.org/pdf/1703.06953.pdf) and [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155). Bot uses pretrained models based on the user's own style image or build-in options.
 
 For user's own style image bot uses [MSG-Net](https://arxiv.org/pdf/1703.06953.pdf) as the network that performs style transfer.
 MSG-Net is trained on a large number of content pictures and 21 style pictures. But in the end, the network learned to copy not only these styles, but any (or almost any) other. According to the paper a larger number of style pictures (100 or 1000) during training do not change the result. In fact, the network learns "brushes" and "palettes", and then tries to correlate all this and apply in each case. MSG-Net implementation is taken from here (https://github.com/zhanghang1989/PyTorch-Multi-Style-Transfer).
 
-In addition to uploading  picture, user can choose one of the proposed style. For this you user need to follow the prompts of Telegram Bot.
+User can also choose one of the proposed style by bot. 
 Model used for build-in options is described in [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155) along with [Instance Normalization](https://arxiv.org/pdf/1607.08022.pdf). Implementation is a part of the [pytorch examples](https://github.com/pytorch/examples/tree/master/fast_neural_style) repository. 
 
 All used models can be downloaded from models folder.
