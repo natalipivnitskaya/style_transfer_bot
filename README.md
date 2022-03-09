@@ -1,4 +1,4 @@
-## Style-Transfer-Bot (aka Totoshka) 
+## Style-Transfer-Bot 
 
 This repository contains Telegram Bot code that implements a quick style transfer to your photo.
 User have 2 options: use build-in styles or upload own image of style.
